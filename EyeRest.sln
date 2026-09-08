@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.37530.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EyeRest", "EyeRest\EyeRest.vcxproj", "{0A96D88F-3F47-405D-A740-0C8DF9821425}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Debug|x64.ActiveCfg = Debug|x64
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Debug|x64.Build.0 = Debug|x64
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Debug|x86.ActiveCfg = Debug|Win32
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Debug|x86.Build.0 = Debug|Win32
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Release|x64.ActiveCfg = Release|x64
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Release|x64.Build.0 = Release|x64
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Release|x86.ActiveCfg = Release|Win32
+		{0A96D88F-3F47-405D-A740-0C8DF9821425}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FE777C4-78A5-4BB2-850E-52D1D4B5CC7E}
+	EndGlobalSection
+EndGlobal
