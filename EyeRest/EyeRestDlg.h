@@ -5,6 +5,7 @@
 #pragma once
 #include"constraints.h"
 #include"Input.h"
+#include"ProgressBar.h"
 
 // CEyeRestDlg dialog
 class CEyeRestDlg : public CDialogEx
@@ -55,12 +56,12 @@ public:
 protected:
 	afx_msg LRESULT OnStartInitialTimer(WPARAM wParam, LPARAM lParam);
 	// update it to reflect remaining resting time
-	CStatic mRestTimer;
 	CStatic mWorkedTime;
 	Constraints m_constraints;
 public:
 	afx_msg void OnBnClickedButtonSee();
 	afx_msg void OnClickedButtonSet();
+	ProgressBar progress;
 };
 
 

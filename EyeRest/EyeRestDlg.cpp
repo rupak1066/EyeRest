@@ -26,8 +26,8 @@ CEyeRestDlg::CEyeRestDlg(CWnd* pParent /*=nullptr*/)
 void CEyeRestDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_TIMER_TEXT, mRestTimer);
 	DDX_Control(pDX, IDC_text_worked, mWorkedTime);
+	DDX_Control(pDX, IDC_CIRCULAR_PROGRESS, progress);
 }
 
 BEGIN_MESSAGE_MAP(CEyeRestDlg, CDialogEx)
@@ -66,25 +66,7 @@ BOOL CEyeRestDlg::OnInitDialog()
 	// 2. Load the icon using the global AfxGetApp()
 	HICON hIcon = AfxGetApp()->LoadIcon(IDI_ICON_SEE_SCREEN);
 	HICON hIcon2 = AfxGetApp()->LoadIcon(IDI_ICON_SETTING);
-	//apply font to time texts.
-	smallFont.CreatePointFont(14, _T("Arial"));
-	bigFont.CreateFont(
-		20,              // 1. Height (Size) -> Change this
-		0,               // 2. Width -> Leave 0
-		0,               // 3. Escapement -> Leave 0
-		0,               // 4. Orientation -> Leave 0
-		FW_BOLD,         // 5. Weight -> Change this (FW_NORMAL or FW_BOLD)
-		FALSE,            // 6. Italic -> Change this (TRUE or FALSE)
-		FALSE,           // 7. Underline -> Change this (TRUE or FALSE)
-		0,               // 8. StrikeOut -> Leave 0
-		0,               // 9. CharSet -> Leave 0
-		0,               // 10. OutPrecision -> Leave 0
-		0,               // 11. ClipPrecision -> Leave 0
-		0,               // 12. Quality -> Leave 0
-		0,               // 13. PitchAndFamily -> Leave 0
-		_T("Calibri")      // 14. Face Name -> Change this to your font name
-	);
-	GetDlgItem(IDC_TIMER_TEXT)->SetFont(&bigFont);
+	
 	// 3. Apply the icon to the button
 	if (pButton && hIcon)
 	{
@@ -156,9 +138,15 @@ HCURSOR CEyeRestDlg::OnQueryDragIcon()
 void CEyeRestDlg::UpdateTimerText()
 {
 	CString str;
-	str.Format(_T("%d Seconds"), m_nSecondsLeft);
-	mRestTimer.SetWindowTextW(str);
-	str.Format(_T("You Worked For %.2f Minutes"),m_constraints.WorkTime);
+	str.Format(_T("%dS"), m_nSecondsLeft);
+	
+	
+	progress.setIntervals(min(m_constraints.RestTime,60.0));
+	progress.setMinMax(0.0, m_constraints.RestTime);
+	progress.setText(str);
+	progress.setpos(m_constraints.RestTime - m_nSecondsLeft);
+
+	str.Format(_T("You Worked For %.2f Minutes"), m_constraints.WorkTime);
 	mWorkedTime.SetWindowTextW(str);
 	
 }

@@ -40,6 +40,8 @@ CEyeRestApp theApp;
 
 BOOL CEyeRestApp::InitInstance()
 {
+	Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+	Gdiplus::GdiplusStartup(&m_gdiplusToken, &gdiplusStartupInput, NULL);
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
@@ -99,9 +101,20 @@ BOOL CEyeRestApp::InitInstance()
 #if !defined(_AFXDLL) && !defined(_AFX_NO_MFC_CONTROLS_IN_DIALOGS)
 	ControlBarCleanUp();
 #endif
-
+	
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
 	return FALSE;
 }
 
+int CEyeRestApp::ExitInstance()
+{
+	// 1. Clean up GDI+ token
+	if (m_gdiplusToken != 0)
+	{
+		Gdiplus::GdiplusShutdown(m_gdiplusToken);
+	}
+
+	// 2. Call the base class implementation (required)
+	return CWinApp::ExitInstance();
+}

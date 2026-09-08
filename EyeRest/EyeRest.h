@@ -9,7 +9,7 @@
 #endif
 
 #include "resource.h"		// main symbols
-
+#include<gdiplus.h>
 
 // CEyeRestApp:
 // See EyeRest.cpp for the implementation of this class
@@ -18,11 +18,13 @@
 class CEyeRestApp : public CWinApp
 {
 public:
+	ULONG_PTR m_gdiplusToken;
 	CEyeRestApp();
 
 // Overrides
 public:
 	virtual BOOL InitInstance();
+	virtual int ExitInstance();//to explicitly destroy gdiPlus
 
 // Implementation
 

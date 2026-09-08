@@ -37,11 +37,14 @@ END_MESSAGE_MAP()
 
 bool Input::takeInput(Constraints& mConstraint)
 {
-	
-	if (workDurationIN.IsEmpty() || restDurationIn.IsEmpty())
+	if (workDurationIN.IsEmpty() && restDurationIn.IsEmpty())
 		return false;
-	mConstraint.WorkTime = _tstof(workDurationIN);
-	mConstraint.RestTime = _tstof(restDurationIn);
+
+	if (!workDurationIN.IsEmpty())
+		mConstraint.WorkTime = _tstof(workDurationIN);
+
+	if(!restDurationIn.IsEmpty())
+		mConstraint.RestTime = _tstof(restDurationIn);
 
 	return true;
 }
