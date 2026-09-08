@@ -32,6 +32,8 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 private:
+	CFont smallFont;
+	CFont bigFont;
 	bool isRestTime = false;
 	Input mInput;
 	static const UINT_PTR TIMER_WORK_ID = 1111;
