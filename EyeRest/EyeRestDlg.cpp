@@ -64,7 +64,7 @@ BOOL CEyeRestDlg::OnInitDialog()
 	CButton* pButton = (CButton*)GetDlgItem(IDC_BUTTON_SEE);
 	CButton* pButton2 = (CButton*)GetDlgItem(IDC_BUTTON_SET);
 	// 2. Load the icon using the global AfxGetApp()
-	HICON hIcon = AfxGetApp()->LoadIcon(IDI_ICON_SEE_SCREEN);
+	HICON hIcon = AfxGetApp()->LoadIcon(IDI_ICON_SEE_WIN);
 	HICON hIcon2 = AfxGetApp()->LoadIcon(IDI_ICON_SETTING);
 	
 	// 3. Apply the icon to the button
